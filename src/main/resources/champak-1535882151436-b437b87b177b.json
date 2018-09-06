@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "champak-1535882151436",
+  "private_key_id": "b437b87b177bf710495000852f19a4761b15b366",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQC4saqnfUbBIjsz\n4Yxt3pMGNezKPcwPApvz0n+Vafj+7FQiwFVIMtMY8QZ30tWbAHXGGK+2LaaUWZCG\nsp1e0HVXPIjjorX6uTD9TQr9Rr1LjL1ObiL58v3z77kOugfihNk5uQ7c3zGoXU+M\nyQbd5bhXIwSCM4n3XInI1mRCMsrBkbeTN0zdAcKmpx0RpZ3NBdg7iP3tg6aChsV+\nqiPaxQs8BxyUcV8vCSndPCXA15HlGmFwH/Lxb2vCYiMmXYaO7xMjzwylH7waG4HB\nmzHoF8keXdxJ0RxSl2Qxps60GCOLVnUlGSQogWXa0a9vmpgsyBVkLLgOJledBJO8\n2wGiwN1dAgMBAAECggEADMS1nlImGdSGwMGzTmYwhmGkft/SU2hUBUF0cg0rOl52\nu5dN3gmrd+Iz1wVToJ1hxwHuZdsWlNNzTyiaghNJxW/pK8mUKKL0bNKOc6+YBxjR\n/pHVJ7ABmANm6Qp54JJcHSY6zZC9k1zuErbUG3OV8Ko6VdD/1QLIAMM3l68Avux4\nlKP/azS6ttIfNU132swJeYG1PzSfG5PiKHCz6MhSi5eY8b/ZbCDDrYO8w5HXO+lb\nDrOY9hWVTHnXjj07iWCofDZG4Rs+ucap/Y4rWeTggvOPrH4RigIYIxLzl2AXAm+K\n+bHMsP8ZsC+isiVWhqjRiCR/i7STLpsCuQyYujC00QKBgQDtdY4RAOacwqkP3iCe\n9NnR0AAx7ZWWJhvmoczvk+0mH6Oq5ZuXV7hOtx8/31zH9eFEGWU5YqVJVkzFAp3p\nK30/Mxa/ABhmaWxXZi+9FptpjrFgJRd8/U9OuWzFVqxfXpy/dVTA+f3tF8dQG8rL\noF0c7Lt5FLrynS24F0y8cvu90QKBgQDHHWqgGS1cTMk75BSsVdq7ACBZ7OyXXPgH\nimRablqcGZj+Fj8w5SmgNv91Wi2EqXODEZ4jrIHuNdU1AEM48tLWOM18l0b+nkGl\n41ehDnB/uJPikNuUK2QvkH1ZreYhLUX7n6X3lWq6KWtdtx0K8R1WzNg5zpHHyMfS\n5kaYUHJNzQKBgGQFUSr+WyUKpZWmdc0ey6Uh3QMq1Qhi0vvJiX4crBaT2yfAAVK1\nQ0/8uG/6EKW1fwZlQAr07zQ94qZVXNh7Vg1J4rnfO2ff3h/OTitym1HSJgqedQ9T\nz5UUa6mPwZmGS7YloOaMJpY4nt6yZjBxQudNHAZ7YeeRp1FUlyEFud4RAoGAL/bT\nF4vZFHHey9GOdVEdJozKPj9HYtLfYJmiwPHyW8YCx7o+MJ4TX+e/s9osOtfC3qDg\n0kEc73ACUwkkKFS+GyKFxWx/ipg+wiI4mrBqwymIXjx82H13XcnVmEO+uuE4CXwU\ns8ZHdl7B4UpZ8afRZHZl487x6QlhsVkNSmWek0UCgYAz/P0yDGucxtjjIeNbeHXT\nBgEyoXdxewBkPH43gbhNbxq9JHiAuDldA0GvHWkepH1xeGD3TnKHqx7BvNresdpJ\n9FSLRPLvIcDToN9l3e5x0FA0JH7+v0h4BBKuV7AMTjKTTbaxKFbV/SMCtEOFRzLz\nxgBX9lDMqIdkmIpS0c1/og==\n-----END PRIVATE KEY-----\n",
+  "client_email": "champak-service@champak-1535882151436.iam.gserviceaccount.com",
+  "client_id": "117047115317910166503",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/champak-service%40champak-1535882151436.iam.gserviceaccount.com"
+}
