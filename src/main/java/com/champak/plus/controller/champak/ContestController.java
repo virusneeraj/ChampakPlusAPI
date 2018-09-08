@@ -110,7 +110,7 @@ public class ContestController {
         customResponse.setCode(success_code);
         customResponse.setMessage("Your response has been recorded.");
         try {
-            com.google.api.services.drive.model.File result = googleDriveService.uploadFile(contestForm.getFile(), "Test File", "test des");
+            com.google.api.services.drive.model.File result = googleDriveService.uploadFile(contestForm.getFileData().getFile(), "Test File", "test des");
             customResponse.setData(result);
         } catch (IOException | GeneralSecurityException e) {
             e.printStackTrace();
@@ -184,21 +184,25 @@ public class ContestController {
             description += "Section: "+ contestForm.getCandidateSection()+"\n";
             description += "Student Name: "+ contestForm.getCandidateName()+"\n";
             description += "Student Roll No: "+ contestForm.getCandidateRollNo()+"\n";
-            description += "File Id: "+ contestForm.getFileId();
+            description += "File Id: "+ contestForm.getFileData().getId();
 
-            com.google.api.services.drive.model.File fileResult = googleDriveService.uploadFile(contestForm.getFile(), fileName, description);
+            com.google.api.services.drive.model.File fileResult = googleDriveService.uploadFile(contestForm.getFileData().getFile(), fileName, description);
             logger.info("fileResult:" + fileResult.toString());
 
             if(fileResult.getId() != null){
                 rowData.add(fileResult.getId());
-                //AppendValuesResponse result = googleSheetsService.whenWriteSheet_thenReadSheetOk(contestForm.getSpreadsheetId(), rowData);
-                //customResponse.setData(result);
-                contestForm.setFile(null);
-                contestForm.setFileId(fileResult.getId());
-                contestForm.setId(fileResult.getId());
-                contestFormRepository.save(contestForm);
-                contestForm = contestFormRepository.findOne(fileResult.getId());
-                customResponse.setData(contestForm);
+                if(contestForm.getSpreadsheetId() != null || !contestForm.getSpreadsheetId().isEmpty()) {
+                    AppendValuesResponse result = googleSheetsService.whenWriteSheet_thenReadSheetOk(contestForm.getSpreadsheetId(), rowData);
+                    customResponse.setData(result);
+                }
+                else {
+                    contestForm.getFileData().setFile(null);
+                    contestForm.getFileData().setId(fileResult.getId());
+                    contestForm.setId(fileResult.getId());
+                    contestFormRepository.save(contestForm);
+                    contestForm = contestFormRepository.findOne(fileResult.getId());
+                    customResponse.setData(contestForm);
+                }
             }else {
                 logger.error("File uploading error");
             }

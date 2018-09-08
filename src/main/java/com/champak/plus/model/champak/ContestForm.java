@@ -16,8 +16,7 @@ public class ContestForm {
     private String candidateClass;
     private String candidateSection;
     private String contestIssue;
-    private byte[] file;
-    private String fileId;
+    private FileData fileData;
     private Date createdDate;
     private Date modifiedDate;
     private String spreadsheetId;
@@ -78,20 +77,12 @@ public class ContestForm {
         this.contestIssue = contestIssue;
     }
 
-    public byte[] getFile() {
-        return file;
+    public FileData getFileData() {
+        return fileData;
     }
 
-    public void setFile(byte[] file) {
-        this.file = file;
-    }
-
-    public String getFileId() {
-        return fileId;
-    }
-
-    public void setFileId(String fileId) {
-        this.fileId = fileId;
+    public void setFileData(FileData fileData) {
+        this.fileData = fileData;
     }
 
     public Date getCreatedDate() {
@@ -131,8 +122,7 @@ public class ContestForm {
                 + ",                         \"candidateClass\":\"" + candidateClass + "\""
                 + ",                         \"candidateSection\":\"" + candidateSection + "\""
                 + ",                         \"contestIssue\":\"" + contestIssue + "\""
-                + ",                         \"file\":" + Arrays.toString(file)
-                + ",                         \"fileId\":\"" + fileId + "\""
+                + ",                         \"fileData\":" + fileData
                 + ",                         \"createdDate\":" + createdDate
                 + ",                         \"modifiedDate\":" + modifiedDate
                 + ",                         \"spreadsheetId\":\"" + spreadsheetId + "\""
