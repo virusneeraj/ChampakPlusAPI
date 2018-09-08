@@ -38,6 +38,8 @@ public class GoogleDriveService {
         if(path.startsWith("/"))
             path = path.substring(1);
         path = path.replace("/application.properties","");
+        path = path.replace("file:/","");
+        path = path.replace("!","");
         String tempFile = path+"/tempFile.";
         tempFile += getFileExtension(data);
         Files.write(new java.io.File(tempFile).toPath(), data);
