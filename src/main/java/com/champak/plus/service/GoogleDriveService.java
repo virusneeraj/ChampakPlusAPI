@@ -33,14 +33,10 @@ public class GoogleDriveService {
         fileMetadata.setName(fileName);
         fileMetadata.setDescription(description);
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        String path = classLoader.getResource("application.properties").getPath();
-        if(path.startsWith("/"))
-            path = path.substring(1);
-        path = path.replace("/application.properties","");
-        path = path.replace("file:/","");
-        path = path.replace("!","");
-        String tempFile = path+"/tempFile.";
+        String workingDir = System.getProperty("user.dir");
+
+
+        String tempFile = workingDir+"/tempFile.";
         tempFile += getFileExtension(data);
         Files.write(new java.io.File(tempFile).toPath(), data);
         String mimeType = getMimeType(data);
