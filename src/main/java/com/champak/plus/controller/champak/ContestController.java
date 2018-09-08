@@ -151,7 +151,7 @@ public class ContestController {
     @PostMapping("write")
     public CustomResponse write(@RequestBody ContestForm contestForm){
         //1mae8BNzd--FSddZpI5guKwmP8A35lal6QXeERBKalQA test id
-        logger.info("write request received");
+                    logger.info("write request received");
         logger.info("write request received contestForm:"+contestForm.toString());
         CustomResponse customResponse = new CustomResponse();
         customResponse.setCode(success_code);
@@ -191,7 +191,7 @@ public class ContestController {
 
             if(fileResult.getId() != null){
                 rowData.add(fileResult.getId());
-                if(contestForm.getSpreadsheetId() != null || !contestForm.getSpreadsheetId().isEmpty()) {
+                if(contestForm.getSpreadsheetId() != null) {
                     AppendValuesResponse result = googleSheetsService.whenWriteSheet_thenReadSheetOk(contestForm.getSpreadsheetId(), rowData);
                     customResponse.setData(result);
                 }
