@@ -176,7 +176,12 @@ public class ContestController {
             rowData.add(contestForm.getCandidateRollNo());
             //rowData.add(contestForm.getFile());
 
-            String fileName = contestForm.getCandidateName().replace(" ","_");
+            String fileName = contestForm.getContestIssue() +
+                    contestForm.getSchoolName()+
+                    contestForm.getCandidateSection()+
+                    contestForm.getCandidateName()+
+                    new Date();
+            fileName = fileName.replace(" ","_");
 
             String description = "Contest issue: " + contestForm.getContestIssue()+"\n";
             description += "School Name: " + contestForm.getSchoolName()+"\n";
