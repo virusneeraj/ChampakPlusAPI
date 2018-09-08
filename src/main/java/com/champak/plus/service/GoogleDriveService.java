@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.net.URL;
 import java.nio.file.Files;
 import java.net.URLConnection;
 import java.security.GeneralSecurityException;
@@ -32,7 +33,12 @@ public class GoogleDriveService {
         fileMetadata.setName(fileName);
         fileMetadata.setDescription(description);
 
-        String tempFile = "/tempFile.";
+        ClassLoader classLoader = getClass().getClassLoader();
+        String path = classLoader.getResource("application.properties").getPath();
+        if(path.startsWith("/"))
+            path = path.substring(1);
+        path = path.replace("/application.properties","");
+        String tempFile = path+"/tempFile.";
         tempFile += getFileExtension(data);
         Files.write(new java.io.File(tempFile).toPath(), data);
         String mimeType = getMimeType(data);
