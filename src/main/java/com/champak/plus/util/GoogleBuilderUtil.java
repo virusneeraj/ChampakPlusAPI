@@ -32,25 +32,29 @@ public class GoogleBuilderUtil {
 
 
     public static Credential authorize() throws IOException, GeneralSecurityException {
-        /*InputStream in = GoogleBuilderUtil.class.getResourceAsStream("/credentials.json");
+
+        if(credential != null)
+            return credential;
+
+        InputStream in = GoogleBuilderUtil.class.getResourceAsStream("/credentials.json");
         GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JacksonFactory.getDefaultInstance(), new InputStreamReader(in));
 
         List<String> scopes = Arrays.asList(SheetsScopes.SPREADSHEETS, DriveScopes.DRIVE);
 
         GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(GoogleNetHttpTransport.newTrustedTransport(), JacksonFactory.getDefaultInstance(), clientSecrets, scopes).setDataStoreFactory(new MemoryDataStoreFactory())
                 .setAccessType("offline").build();
-        Credential credential = new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
+        credential = new AuthorizationCodeInstalledApp(flow, new LocalServerReceiver()).authorize("user");
 
-        return credential;*/
+        return credential;
 
-        if(credential != null)
+        /*if(credential != null)
             return credential;
 
         List<String> scopes = Arrays.asList(SheetsScopes.SPREADSHEETS, DriveScopes.DRIVE);
 
         InputStream in = GoogleBuilderUtil.class.getResourceAsStream("/champak-1535882151436-b437b87b177b.json");
         credential = GoogleCredential.fromStream(in).createScoped(scopes);
-        return credential;
+        return credential;*/
 
     }
 
