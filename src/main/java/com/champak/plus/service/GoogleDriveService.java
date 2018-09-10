@@ -8,6 +8,7 @@ import com.google.api.client.http.GenericUrl;
 import com.google.api.client.http.HttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -19,6 +20,9 @@ import java.security.GeneralSecurityException;
 @Service
 public class GoogleDriveService {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
+    @Autowired
+    GooglePermissionService googlePermissionService;
 
     private static Drive driveService;
 
@@ -46,6 +50,9 @@ public class GoogleDriveService {
         File file = driveService.files().create(fileMetadata, mediaContent).execute();
         //System.out.println("File ID: " + file.getId());
         logger.info("uploading file - done");
+        logger.info("setting perm");
+        googlePermissionService.insertPermission(driveService, file.getId());
+        logger.info("setting perm - done");
         return file;
     }
 
