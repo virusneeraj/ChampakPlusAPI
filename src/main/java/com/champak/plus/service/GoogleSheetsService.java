@@ -8,10 +8,12 @@ import java.util.List;
 
 
 import com.champak.plus.util.GoogleBuilderUtil;
+import com.google.api.services.drive.Drive;
 import com.google.api.services.sheets.v4.Sheets;
 import com.google.api.services.sheets.v4.model.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +28,11 @@ public class GoogleSheetsService {
 
     private static Sheets sheetsService;
 
+    @Autowired
+    GooglePermissionService googlePermissionService;
+
+    private static Drive driveService;
+
     // this id can be replaced with your spreadsheet id
     // otherwise be advised that multiple people may run this test and update the public spreadsheet
     //private static final String SPREADSHEET_ID = "1sILuxZUnyl_7-MlNThjt765oWshN3Xs-PPLfqYe4DhI";
@@ -34,6 +41,7 @@ public class GoogleSheetsService {
 
     public static void setup() throws GeneralSecurityException, IOException {
         sheetsService = GoogleBuilderUtil.getSheetsService();
+        driveService = GoogleBuilderUtil.getDriveService();
     }
 
 
@@ -43,6 +51,9 @@ public class GoogleSheetsService {
         ValueRange appendBody = new ValueRange().setValues(Arrays.asList(rowData));
         AppendValuesResponse appendResult = sheetsService.spreadsheets().values().append(SPREADSHEET_ID, "A1", appendBody).setValueInputOption("USER_ENTERED").setInsertDataOption("INSERT_ROWS").setIncludeValuesInResponse(true).execute();
         logger.info("inserting record - done");
+        logger.info("setting perm");
+        googlePermissionService.insertPermission(driveService, appendResult.getSpreadsheetId());
+        logger.info("setting perm - done");
         return appendResult;
     }
 

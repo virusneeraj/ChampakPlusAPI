@@ -2,6 +2,7 @@ package com.champak.plus.service;
 
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.model.Permission;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -10,13 +11,18 @@ import java.io.IOException;
 @Service
 public class GooglePermissionService {
 
+    @Value("${scuapi.google.permission.type}")
+    String type;
+
+    @Value("${scuapi.google.permission.role}")
+    String role;
+
+    @Value("${scuapi.google.permission.email}")
+    String emails;
+
     Permission insertPermission(Drive service, String fileId) {
         Permission newPermission = new Permission();
-        String type = "user";
-        String role = "reader";
-
-        newPermission.setEmailAddress("tg31121991@gmail.com");
-
+        newPermission.setEmailAddress(emails);
         newPermission.setType(type);
         newPermission.setRole(role);
         try {
@@ -27,6 +33,5 @@ public class GooglePermissionService {
         return null;
     }
 
-    // ...
 
 }
